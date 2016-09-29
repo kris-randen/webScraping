@@ -99,7 +99,7 @@ private func firstMatch(_ pattern: String) -> (String) -> NSTextCheckingResult? 
     }
 }
 
-private func nth(prefix: String, a: Int, b: Int) -> String {
+private func nth(_ prefix: String, a: Int, b: Int) -> String {
     let sibling = "\(prefix)-sibling::*"
     if a == 0 {
         return "count(\(sibling)) = \(b-1)"
@@ -114,12 +114,12 @@ private func nth(prefix: String, a: Int, b: Int) -> String {
 }
 
 // a(n) + b | a(n) - b
-private func nth_child(a: Int, b: Int) -> String {
-    return nth(prefix: "preceding", a: a, b: b)
+private func nth_child(_ a: Int, b: Int) -> String {
+    return nth("preceding", a: a, b: b)
 }
 
-private func nth_last_child(a: Int, b: Int) -> String {
-    return nth(prefix: "following", a: a, b: b)
+private func nth_last_child(_ a: Int, b: Int) -> String {
+    return nth("following", a: a, b: b)
 }
 
 private let matchBlank        = firstMatch("^\\s*|\\s$")
