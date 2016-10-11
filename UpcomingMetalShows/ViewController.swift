@@ -51,23 +51,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     let link: String = "https://studentaffairs.psu.edu/CurrentFitnessAttendance/api/CounterAPI"
     
-    func cURLscrapeWebPage(link: String) -> Void {
-        let headers = [
-            "Accept": "application/json, text/javascript, /; q=0.01",
-            "X-Requested-With": "XMLHttpRequest",
-            "Connection": "keep-alive",
-            "Referer": "https://studentaffairs.psu.edu/CurrentFitnessAttendance/"
-        ]
-        
-        Alamofire.request(link, headers: headers).responseJSON { (response) in
-            let string = "\(response)"
-            let parsed = self.stringParser(string: string)
-            for i in 1...parsed.count {
-                print(parsed[i-1])
-            }
-            print(string)
-        }
-    }
+//    func cURLscrapeWebPage(link: String) -> Void {
+//        let headers = [
+//            "Accept": "application/json, text/javascript, /; q=0.01",
+//            "X-Requested-With": "XMLHttpRequest",
+//            "Connection": "keep-alive",
+//            "Referer": "https://studentaffairs.psu.edu/CurrentFitnessAttendance/"
+//        ]
+//        
+//        Alamofire.request(link, headers: headers).responseJSON { (response) in
+//            let string = "\(response)"
+//            let parsed = self.stringParser(string: string)
+//            for i in 1...parsed.count {
+//                print(parsed[i-1])
+//            }
+//            print(string)
+//        }
+//    }
     
     func stringParser(string: String) -> [[String:String]] {
         let resultSemicolon = string.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines).components(separatedBy: ";\n")
@@ -115,7 +115,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         metalShowTableView.delegate = self
         metalShowTableView.dataSource = self
-        self.cURLscrapeWebPage(link: link)
+        cURLscrapeWebPage(link: Constants.Web.Link.PSUfitnessCURLscraping)
     }
 
     override func didReceiveMemoryWarning() {

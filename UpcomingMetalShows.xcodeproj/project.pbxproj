@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0D8C0AB71DAD8E260033FEF3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8C0AB61DAD8E260033FEF3 /* Constants.swift */; };
+		0D8C0AC01DAD98440033FEF3 /* Scraping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8C0ABF1DAD98440033FEF3 /* Scraping.swift */; };
+		0D8C0AC21DAD98560033FEF3 /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8C0AC11DAD98560033FEF3 /* Parsing.swift */; };
 		0DD7A5D71D9D205700C572B0 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DD7A5CA1D9D1F8A00C572B0 /* Alamofire.framework */; };
 		0DD7A5D81D9D205700C572B0 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0DD7A5CA1D9D1F8A00C572B0 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6AC6E8AD9DB1977BFA609C19 /* Pods_UpcomingMetalShows.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC8A77F8587F27F9D9688C8A /* Pods_UpcomingMetalShows.framework */; };
@@ -93,6 +95,8 @@
 
 /* Begin PBXFileReference section */
 		0D8C0AB61DAD8E260033FEF3 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0D8C0ABF1DAD98440033FEF3 /* Scraping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scraping.swift; sourceTree = "<group>"; };
+		0D8C0AC11DAD98560033FEF3 /* Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parsing.swift; sourceTree = "<group>"; };
 		0DD7A5BE1D9D1F8A00C572B0 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		0DD7A5EF1D9D23E200C572B0 /* UpcomingMetalShows-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UpcomingMetalShows-Bridging-Header.h"; sourceTree = "<group>"; };
 		372E0C2D206662ED30763F5F /* Pods-UpcomingMetalShows.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpcomingMetalShows.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UpcomingMetalShows/Pods-UpcomingMetalShows.debug.xcconfig"; sourceTree = "<group>"; };
@@ -174,6 +178,8 @@
 			isa = PBXGroup;
 			children = (
 				0D8C0AB61DAD8E260033FEF3 /* Constants.swift */,
+				0D8C0ABF1DAD98440033FEF3 /* Scraping.swift */,
+				0D8C0AC11DAD98560033FEF3 /* Parsing.swift */,
 				E0DA3A861D5E707700E639E9 /* AppDelegate.swift */,
 				E0DA3A881D5E707700E639E9 /* ViewController.swift */,
 				E0DA3A8A1D5E707700E639E9 /* Main.storyboard */,
@@ -369,6 +375,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D8C0AC01DAD98440033FEF3 /* Scraping.swift in Sources */,
+				0D8C0AC21DAD98560033FEF3 /* Parsing.swift in Sources */,
 				E0DA3A891D5E707700E639E9 /* ViewController.swift in Sources */,
 				E0DA3A871D5E707700E639E9 /* AppDelegate.swift in Sources */,
 				0D8C0AB71DAD8E260033FEF3 /* Constants.swift in Sources */,
