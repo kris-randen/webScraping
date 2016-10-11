@@ -23,11 +23,11 @@ extension Array {
     }
 }
 
-let Current_Val = "CurrentVal"
-let Full_Capacity_Wait_Time = "FullCapacityWaitTime"
+let Current_Val = "Occupancy"
+let Full_Capacity_Wait_Time = "Wait Time"
 let GUID = "GUID"
-let Location_Description = "LocationDescription"
-let Max_Val = "MaxVal"
+let Location_Description = "Gym"
+let Max_Val = "Capacity"
 let Gym_Data_Separator = " = "
 let Gym_Parameter_Keys = [Current_Val, Full_Capacity_Wait_Time, GUID, Location_Description, Max_Val]
 let White_Building = "White Building"
@@ -35,7 +35,11 @@ let White_Bldg = "White Bldg"
 let Rec_Hall = "Rec Hall"
 let IM_Building = "IM Building"
 let IM_Bldg = "IM Bldg"
-let Gym_Synonyms = ["Hepper Fitness Center" : Rec_Hall, "White Building" : White_Bldg, "IM Weight Room" : IM_Bldg]
+let Hepper_Fitness = "Hepper Fitness Center"
+let IM_Weight_Room = "IM Weight Room"
+let Gym_Synonyms = [Hepper_Fitness : Rec_Hall,
+                    White_Building : White_Bldg,
+                    IM_Weight_Room : IM_Bldg]
 
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -61,6 +65,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             for i in 1...parsed.count {
                 print(parsed[i-1])
             }
+            print(string)
         }
     }
     
