@@ -115,7 +115,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         metalShowTableView.delegate = self
         metalShowTableView.dataSource = self
-        cURLscrapeWebPage(link: Constants.Web.Link.PSUfitnessCURLscraping)
+        
+        GymStatistics().update()
+        print(GymStatistics.gymStatistics)
     }
 
     override func didReceiveMemoryWarning() {

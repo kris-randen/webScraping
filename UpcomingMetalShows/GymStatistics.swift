@@ -7,28 +7,24 @@
 //
 
 import Foundation
+typealias GymStat = [String : [ String : String]]
 
 protocol GymStatisticsType
 {
-    var name: String? { get }
-    var capacity: Int? { get }
-    var occupancyNumber: Int? { get }
-    var occupancyPercentage: Double? { get }
+    static var gymStatistics: GymStat? { get set }
+    func update()
 }
 
 class GymStatistics: GymStatisticsType
 {
-    struct WhiteBldg
-    {
-        
-    }
-    var name: String?
-    var capacity: Int?
-    var occupancyNumber: Int?
-    var occupancyPercentage: Double?
+    static var gymStatistics: GymStat?
     
-    init(currentGymStatistics: [String : [ String : String ]])
+    init()
     {
-        
+        update()
+    }
+    
+    func update() {
+        GymStatistics.gymStatistics = cURLscrapeWebPage(link: Constants.Web.Link.PSUfitnessCURLscraping)
     }
 }

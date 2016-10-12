@@ -9,18 +9,16 @@
 import Foundation
 import Alamofire
 
-func cURLscrapeWebPage(link: String) -> Void {
+func cURLscrapeWebPage(link: String) -> GymStat {
     let CURLscraping = ConstantsDictionary[Constants.Mirror.Key.CURLscraping]!
     let headers = CURLscraping[Constants.Mirror.CURLscraping.Key.HeadersPSUFitness]!
+    var gymStat: GymStat = [:]
     
     Alamofire.request(link, headers: headers).responseJSON { (response) in
         let string = "\(response)"
-        let parsed = stringParser(string: string)
-        for i in 1...parsed.count {
-            //print(parsed[i-1])
-        }
-        //print(string)
+        gymStat = stringParser(string: string)
     }
+    return gymStat
 }
 
 //func scrapeWebPage(link: String) -> Void {
