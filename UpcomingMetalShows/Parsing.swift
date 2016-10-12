@@ -18,7 +18,9 @@ func stringParser(string: String) -> [String : [String : String]] {
     
     for i in 1...numberOfGyms
     {
-        indices.append((Constants.Gym.Statistic.numberOfParameters + 1) * i)
+        let length = Constants.Gym.Statistic.numberOfParameters + 1
+        indices.append(length * i)
+        //indices.append(length * (i-1) + 4)
     }
     
     let relevantResult = resultSemicolon.removeIndices(indices: indices)
