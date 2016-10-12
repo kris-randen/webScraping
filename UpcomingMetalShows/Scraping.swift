@@ -9,6 +9,8 @@
 import Foundation
 import Alamofire
 
+typealias GymStat = [String : [String : String]]
+
 func cURLscrapeWebPage(link: String) -> GymStat {
     let CURLscraping = ConstantsDictionary[Constants.Mirror.Key.CURLscraping]!
     let headers = CURLscraping[Constants.Mirror.CURLscraping.Key.HeadersPSUFitness]!

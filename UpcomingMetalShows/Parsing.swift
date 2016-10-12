@@ -9,11 +9,22 @@
 import Foundation
 import Kanna
 
-func stringParser(string: String) -> [String : [String : String]] {
+extension Array {
+    func removeIndices(indices: [Int]) -> Array {
+        var counter = 0
+        var result = self
+        for i in indices {
+            result.remove(at: (i - counter))
+            counter += 1
+        }
+        return result
+    }
+}
+
+func stringParser(string: String) -> GymStat {
     let resultSemicolon = string.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines).components(separatedBy: ";\n")
     let lengthRaw = resultSemicolon.count
     let numberOfGyms = (lengthRaw - 1) / (Constants.Gym.Statistic.numberOfParameters + 1)
-    print("NUMBER OF GYMS = \(numberOfGyms)")
     var indices: [Int] = [0]
     
     for i in 1...numberOfGyms
@@ -24,7 +35,6 @@ func stringParser(string: String) -> [String : [String : String]] {
     }
     
     let relevantResult = resultSemicolon.removeIndices(indices: indices)
-    print("RELEVANT RESULT LENGTH = \(relevantResult.count)")
     
     var resultDict: [String : [String : String]] = [ : ]
     var gymDict: [String : String] = [ : ]
@@ -45,19 +55,3 @@ func stringParser(string: String) -> [String : [String : String]] {
     print(resultDict)
     return resultDict
 }
-
-//func parseHTML(html: String) -> Void {
-//    if let doc = Kanna.HTML(html, encoding: String.Encoding.utf8) {
-//        
-//        // Search for nodes by CSS
-//        for show in doc.css("body") {
-//            let showString = show.text!.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
-//            let regex = try! NSRegularExpression(pattern: "^", options: [.caseInsensitive])
-//            if regex.firstMatch(in: showString, options: [], range: NSMakeRange(0, showString.characters.count)) != nil {
-//                shows.append(showString)
-//                print(showString + "\n")
-//            }
-//        }
-//    }
-//}
-
