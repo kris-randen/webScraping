@@ -19,7 +19,7 @@ func cURLscrapeWebPage(link: String) -> Void {
         for i in 1...parsed.count {
             print(parsed[i-1])
         }
-        print(string)
+        //print(string)
     }
 }
 
