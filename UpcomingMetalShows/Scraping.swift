@@ -14,13 +14,14 @@ typealias GymStat = [String : [String : String]]
 func cURLscrapeWebPage(link: String) -> GymStat {
     let CURLscraping = ConstantsDictionary[Constants.Mirror.Key.CURLscraping]!
     let headers = CURLscraping[Constants.Mirror.CURLscraping.Key.HeadersPSUFitness]!
-    var gymStat: GymStat = [:]
+    var gymStat: GymStat?
     
     Alamofire.request(link, headers: headers).responseJSON { (response) in
         let string = "\(response)"
         gymStat = stringParser(string: string)
     }
-    return gymStat
+    print("SCRAPER = \(gymStat)")
+    return gymStat!
 }
 
 //func scrapeWebPage(link: String) -> Void {

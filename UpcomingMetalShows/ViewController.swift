@@ -12,18 +12,20 @@ import Alamofire
 
 
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController {
     @available(iOS 2.0, *)
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath as IndexPath)
         return cell
     }
     
-    var gymStat: GymStat?
-    {
-        return cURLscrapeWebPage(link: Constants.Web.Link.PSUfitnessCURLscraping)
-    }
+    private var gymStats: GymStat = [:]
     
+    @IBAction func fetch(_ sender: AnyObject)
+    {
+        self.gymStats = cURLscrapeWebPage(link: Constants.Web.Link.PSUfitnessCURLscraping)
+        print("GYM STATISTICS = \(cURLscrapeWebPage(link: Constants.Web.Link.PSUfitnessCURLscraping))")
+    }
     var shows: [String] = []
     
     let textCellIdentifier = "ShowCell"
@@ -32,11 +34,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        metalShowTableView.delegate = self
-        metalShowTableView.dataSource = self
         
-//        self.gymStat = cURLscrapeWebPage(link: Constants.Web.Link.PSUfitnessCURLscraping)
-        print("GYM STATISTICS = \(gymStat)")
     }
 
     override func didReceiveMemoryWarning() {

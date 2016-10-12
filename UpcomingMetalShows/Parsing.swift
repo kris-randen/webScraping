@@ -52,6 +52,6 @@ func stringParser(string: String) -> GymStat {
     
         resultDict.updateValue(gymDict, forKey: gymSynonyms[resultKey]!)
     }
-    print(resultDict)
+    print("PARSER = \(resultDict)")
     return resultDict
 }
