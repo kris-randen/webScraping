@@ -65,6 +65,7 @@ struct Constants
             static let GUID = "GUID"
             static let LocationDescription = "Gym"
             static let MaxVal = "Capacity"
+            static let numberOfParameters: Int = 5
         }
         
         struct Parsing
