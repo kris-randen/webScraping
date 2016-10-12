@@ -116,7 +116,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         metalShowTableView.delegate = self
         metalShowTableView.dataSource = self
         
-        GymStatistics().update()
+        GymStatistics()
         print(GymStatistics.gymStatistics)
     }
 
