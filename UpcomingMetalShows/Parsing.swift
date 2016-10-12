@@ -9,6 +9,18 @@
 import Foundation
 import Kanna
 
+extension Array {
+    func removeIndices(indices: [Int]) -> Array {
+        var counter = 0
+        var result = self
+        for i in indices {
+            result.remove(at: (i - counter))
+            counter += 1
+        }
+        return result
+    }
+}
+
 func stringParser(string: String) -> [String : [String : String]] {
     let resultSemicolon = string.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines).components(separatedBy: ";\n")
     let lengthRaw = resultSemicolon.count
@@ -20,7 +32,6 @@ func stringParser(string: String) -> [String : [String : String]] {
     {
         let length = Constants.Gym.Statistic.numberOfParameters + 1
         indices.append(length * i)
-        //indices.append(length * (i-1) + 4)
     }
     
     let relevantResult = resultSemicolon.removeIndices(indices: indices)
@@ -42,7 +53,6 @@ func stringParser(string: String) -> [String : [String : String]] {
     
         resultDict.updateValue(gymDict, forKey: gymSynonyms[resultKey]!)
     }
-    print(resultDict)
     return resultDict
 }
 

@@ -11,20 +11,20 @@ typealias GymStat = [String : [ String : String]]
 
 protocol GymStatisticsType
 {
-    static var gymStatistics: GymStat? { get set }
-    func update()
+    static var gymStatistics: GymStat { get set }
+    static func update()
 }
 
 class GymStatistics: GymStatisticsType
 {
-    static var gymStatistics: GymStat?
+    static var gymStatistics: GymStat = [:]
     
     init()
     {
-        update()
+        GymStatistics.update()
     }
     
-    func update() {
+    static func update() {
         GymStatistics.gymStatistics = cURLscrapeWebPage(link: Constants.Web.Link.PSUfitnessCURLscraping)
     }
 }

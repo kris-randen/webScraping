@@ -10,38 +10,6 @@ import UIKit
 import Kanna
 import Alamofire
 
-
-extension Array {
-    func removeIndices(indices: [Int]) -> Array {
-        var counter = 0
-        var result = self
-        for i in indices {
-            result.remove(at: (i - counter))
-            counter += 1
-        }
-        return result
-    }
-}
-
-let Current_Val = "Occupancy"
-let Full_Capacity_Wait_Time = "Wait Time"
-let GUID = "GUID"
-let Location_Description = "Gym"
-let Max_Val = "Capacity"
-let Gym_Data_Separator = " = "
-let Gym_Parameter_Keys = [Current_Val, Full_Capacity_Wait_Time, GUID, Location_Description, Max_Val]
-let White_Building = "White Building"
-let White_Bldg = "White Bldg"
-let Rec_Hall = "Rec Hall"
-let IM_Building = "IM Building"
-let IM_Bldg = "IM Bldg"
-let Hepper_Fitness = "Hepper Fitness Center"
-let IM_Weight_Room = "IM Weight Room"
-let Gym_Synonyms = [Hepper_Fitness : Rec_Hall,
-                    White_Building : White_Bldg,
-                    IM_Weight_Room : IM_Bldg]
-
-
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @available(iOS 2.0, *)
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -49,42 +17,42 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
-    func stringParser(string: String) -> [[String:String]] {
-        let resultSemicolon = string.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines).components(separatedBy: ";\n")
-        let relevantResult = resultSemicolon.removeIndices(indices: [0, 6, 12, 18])
-        var keys: [String] = []
-        var values: [String] = []
-        var result: [[String:String]] = [[:]]
-        for i in 1...relevantResult.count {
-            let trimmedSplit = relevantResult[i-1].trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines).replacingOccurrences(of: "\"", with: "").components(separatedBy: Gym_Data_Separator)
-            keys.append(trimmedSplit[0])
-            values.append(trimmedSplit[1])
-            result.append([keys[i-1] : values[i-1]])
-        }
-        return result
-    }
+//    func stringParser(string: String) -> [[String:String]] {
+//        let resultSemicolon = string.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines).components(separatedBy: ";\n")
+//        let relevantResult = resultSemicolon.removeIndices(indices: [0, 6, 12, 18])
+//        var keys: [String] = []
+//        var values: [String] = []
+//        var result: [[String:String]] = [[:]]
+//        for i in 1...relevantResult.count {
+//            let trimmedSplit = relevantResult[i-1].trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines).replacingOccurrences(of: "\"", with: "").components(separatedBy: Gym_Data_Separator)
+//            keys.append(trimmedSplit[0])
+//            values.append(trimmedSplit[1])
+//            result.append([keys[i-1] : values[i-1]])
+//        }
+//        return result
+//    }
     
-    func scrapeNYCMetalScene() -> Void {
-        Alamofire.request("https://studentaffairs.psu.edu/CurrentFitnessAttendance/").responseString { (response) in
-            print("Success: \(response.result.isSuccess)")
-            self.parseHTML(html: response.result.value!)
-        }
-    }
-    
-    func parseHTML(html: String) -> Void {
-        if let doc = Kanna.HTML(html, encoding: String.Encoding.utf8) {
-            
-            // Search for nodes by CSS
-            for show in doc.css("body") {
-                let showString = show.text!.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
-                let regex = try! NSRegularExpression(pattern: "^", options: [.caseInsensitive])
-                if regex.firstMatch(in: showString, options: [], range: NSMakeRange(0, showString.characters.count)) != nil {
-                    shows.append(showString)
-                    print(showString + "\n")
-                }
-            }
-        }
-    }
+//    func scrapeNYCMetalScene() -> Void {
+//        Alamofire.request("https://studentaffairs.psu.edu/CurrentFitnessAttendance/").responseString { (response) in
+//            print("Success: \(response.result.isSuccess)")
+//            self.parseHTML(html: response.result.value!)
+//        }
+//    }
+//    
+//    func parseHTML(html: String) -> Void {
+//        if let doc = Kanna.HTML(html, encoding: String.Encoding.utf8) {
+//            
+//            // Search for nodes by CSS
+//            for show in doc.css("body") {
+//                let showString = show.text!.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
+//                let regex = try! NSRegularExpression(pattern: "^", options: [.caseInsensitive])
+//                if regex.firstMatch(in: showString, options: [], range: NSMakeRange(0, showString.characters.count)) != nil {
+//                    shows.append(showString)
+//                    print(showString + "\n")
+//                }
+//            }
+//        }
+//    }
     var shows: [String] = []
     
     let textCellIdentifier = "ShowCell"
@@ -97,7 +65,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         metalShowTableView.dataSource = self
         
         GymStatistics()
-        print(GymStatistics.gymStatistics)
+        print("GYM STATISTICS = \(GymStatistics.gymStatistics)")
     }
 
     override func didReceiveMemoryWarning() {
