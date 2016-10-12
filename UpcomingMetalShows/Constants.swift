@@ -71,8 +71,11 @@ struct Constants
         struct Parsing
         {
             static let GymDataSeparator = " = "
-            static let GymParameterKeys = [Current_Val, Full_Capacity_Wait_Time, GUID, Location_Description, Max_Val]
-        }
+            static let CurrentVal = "CurrentVal"
+            static let FullCapacityWaiTime = "FullCapacityWaiTime"
+            static let GUID = "GUID"
+            static let LocationDescription = "LocationDescription"
+            static let MaxVal = "MaxVal"        }
         
         struct Name
         {
@@ -158,11 +161,11 @@ struct Constants
             
             struct Statistic
             {
-                static let CurrentVal = "CurrentVal"
-                static let FullCapacityWaiTime = "FullCapacityWaiTime"
-                static let GUID = "GUID"
-                static let LocationDescription = "LocationDescription"
-                static let MaxVal = "MaxVal"
+                static let CurrentVal = Constants.Gym.Parsing.CurrentVal
+                static let FullCapacityWaiTime = Constants.Gym.Parsing.FullCapacityWaiTime
+                static let GUID = Constants.Gym.Parsing.GUID
+                static let LocationDescription = Constants.Gym.Parsing.LocationDescription
+                static let MaxVal = Constants.Gym.Parsing.MaxVal
             }
             
             struct Parsing
