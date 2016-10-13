@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D6F18181DAEDF1700A75014 /* GymStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6F18171DAEDF1700A75014 /* GymStatistics.swift */; };
+		0D6F18181DAEDF1700A75014 /* Gym.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6F18171DAEDF1700A75014 /* Gym.swift */; };
 		0D8C0AB71DAD8E260033FEF3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8C0AB61DAD8E260033FEF3 /* Constants.swift */; };
-		0D8C0AC01DAD98440033FEF3 /* Scraping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8C0ABF1DAD98440033FEF3 /* Scraping.swift */; };
 		0D8C0AC21DAD98560033FEF3 /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8C0AC11DAD98560033FEF3 /* Parsing.swift */; };
 		0DD7A5D71D9D205700C572B0 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DD7A5CA1D9D1F8A00C572B0 /* Alamofire.framework */; };
 		0DD7A5D81D9D205700C572B0 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0DD7A5CA1D9D1F8A00C572B0 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -95,9 +94,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0D6F18171DAEDF1700A75014 /* GymStatistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GymStatistics.swift; sourceTree = "<group>"; };
+		0D6F18171DAEDF1700A75014 /* Gym.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gym.swift; sourceTree = "<group>"; };
 		0D8C0AB61DAD8E260033FEF3 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		0D8C0ABF1DAD98440033FEF3 /* Scraping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scraping.swift; sourceTree = "<group>"; };
 		0D8C0AC11DAD98560033FEF3 /* Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parsing.swift; sourceTree = "<group>"; };
 		0DD7A5BE1D9D1F8A00C572B0 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		0DD7A5EF1D9D23E200C572B0 /* UpcomingMetalShows-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UpcomingMetalShows-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -180,8 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				0D8C0AB61DAD8E260033FEF3 /* Constants.swift */,
-				0D6F18171DAEDF1700A75014 /* GymStatistics.swift */,
-				0D8C0ABF1DAD98440033FEF3 /* Scraping.swift */,
+				0D6F18171DAEDF1700A75014 /* Gym.swift */,
 				0D8C0AC11DAD98560033FEF3 /* Parsing.swift */,
 				E0DA3A861D5E707700E639E9 /* AppDelegate.swift */,
 				E0DA3A881D5E707700E639E9 /* ViewController.swift */,
@@ -378,11 +375,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D8C0AC01DAD98440033FEF3 /* Scraping.swift in Sources */,
 				0D8C0AC21DAD98560033FEF3 /* Parsing.swift in Sources */,
 				E0DA3A891D5E707700E639E9 /* ViewController.swift in Sources */,
 				E0DA3A871D5E707700E639E9 /* AppDelegate.swift in Sources */,
-				0D6F18181DAEDF1700A75014 /* GymStatistics.swift in Sources */,
+				0D6F18181DAEDF1700A75014 /* Gym.swift in Sources */,
 				0D8C0AB71DAD8E260033FEF3 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

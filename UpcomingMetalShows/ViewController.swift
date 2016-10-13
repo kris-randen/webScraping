@@ -10,43 +10,46 @@ import UIKit
 import Kanna
 import Alamofire
 
-
-
 class ViewController: UIViewController {
-    @available(iOS 2.0, *)
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath as IndexPath)
-        return cell
-    }
     
     private var gymStats: GymStat = [:]
     
+    @IBOutlet weak var whiteBldg: UILabel!
+    @IBOutlet weak var recHall: UILabel!
+    @IBOutlet weak var IMBldg: UILabel!
+    
+    private func CURLscrapeWebPage(link: String) {
+        let CURLscraping = ConstantsDictionary[Constants.Mirror.Key.CURLscraping]!
+        let headers = CURLscraping[Constants.Mirror.CURLscraping.Key.HeadersPSUFitness]!
+        var result: GymStat?
+        
+        Alamofire.request(link, headers: headers).responseJSON { [weak weakSelf = self] (response) in
+            DispatchQueue.main.async {
+                let string = "\(response)"
+                Gym.statistics = stringParser(string: string)
+                let whiteBldgStats = Gym.statistics[Constants.Gym.Name.WhiteBldg]!
+                let whiteBldgOccupancy = Gym.statistics[Constants.Gym.Name.WhiteBldg]![Constants.Gym.Parsing.CurrentVal]!
+                weakSelf?.whiteBldg.text = Gym.statistics[Constants.Gym.Name.WhiteBldg]![Constants.Gym.Parsing.CurrentVal]!
+                weakSelf?.IMBldg.text = Gym.statistics[Constants.Gym.Name.IMBldg]![Constants.Gym.Parsing.CurrentVal]!
+                weakSelf?.recHall.text = Gym.statistics[Constants.Gym.Name.RecHall]![Constants.Gym.Parsing.CurrentVal]!
+            }
+        }
+    }
+
+    
+    
     @IBAction func fetch(_ sender: AnyObject)
     {
-        self.gymStats = cURLscrapeWebPage(link: Constants.Web.Link.PSUfitnessCURLscraping)
-        print("GYM STATISTICS = \(cURLscrapeWebPage(link: Constants.Web.Link.PSUfitnessCURLscraping))")
+        CURLscrapeWebPage(link: Constants.Web.Link.PSUfitnessCURLscraping)
     }
-    var shows: [String] = []
     
-    let textCellIdentifier = "ShowCell"
-    
-    @IBOutlet var metalShowTableView: UITableView!
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        CURLscrapeWebPage(link: Constants.Web.Link.PSUfitnessCURLscraping)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return shows.count
     }
 }

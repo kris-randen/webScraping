@@ -9,6 +9,8 @@
 import Foundation
 import Kanna
 
+typealias GymStat = [String : [String : String]]
+
 extension Array {
     func removeIndices(indices: [Int]) -> Array {
         var counter = 0
@@ -31,7 +33,6 @@ func stringParser(string: String) -> GymStat {
     {
         let length = Constants.Gym.Statistic.numberOfParameters + 1
         indices.append(length * i)
-        //indices.append(length * (i-1) + 4)
     }
     
     let relevantResult = resultSemicolon.removeIndices(indices: indices)
@@ -52,6 +53,5 @@ func stringParser(string: String) -> GymStat {
     
         resultDict.updateValue(gymDict, forKey: gymSynonyms[resultKey]!)
     }
-    print("PARSER = \(resultDict)")
     return resultDict
 }
